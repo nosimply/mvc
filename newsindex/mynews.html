@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>心无杂念 </title>
+    <meta name="generator" content="editplus" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<link rel="stylesheet" href='./css/bootstrap.min.css'>
+<body>
+<header>
+    <div class="page-header container">
+        <h1>头条 <small>后台管理系统</small></h1>
+    </div>
+</header>
+<form action="indexm.php?c=News&a=serch" method="post" align='center' class="form-inline">
+    <label for="exampleInputName2">编码</label> <input type="text" name="carid" class="form-control" id="exampleInputName2">
+    <button type="sumbit" class="btn btn-info">搜索</button>
+</form>
+<hr />
+<hr />
+<form action="indexm.php?c=News&a=alert" method="post" align='center' class="form-inline">
+    <label for="exampleInputName2">编码</label> <input type="text" name="proid" class="form-control" id="exampleInputName3">
+    <label for="exampleInputName3">头条</label> <input type="text" name="protitle"class="form-control" id="exampleInputName4" >
+    <label for="exampleInputName4">内容</label> <textarea name="procomment"class="form-control" id="exampleInputName6" ></textarea>
+    <label for="exampleInputName5">作者</label> <input type="text" name="proname"class="form-control" id="exampleInputName5" >
+    <button type="sumbit" class="btn btn-info">添加</button>
+    <hr />
+</form>
+<table  class="table table-hover">
+    <tr>
+        <th class="success">编码</th>
+        <th class="success">头条</th>
+        <th class="success">内容</th>
+        <th class="success">姓名</th>
+        <th class="success">删除</th>
+        <th class="success">修改</th>
+    </tr>
+    <?php foreach($res_gets as $mark){ ?>
+	
+    <tr>
+        <td ><?=$mark['id']?></td>
+        <td ><?=$mark['titie']?></td>
+        <td ><?=$mark['comment']?></td>
+        <td ><?=$mark['name']?></td>
+        <td><a class="btn btn-info" role="button" href="indexm.php?c=News&a=del&proid=<?=$mark['proid']?>" onclick="return confirm('确定要删除吗')">删除</a></td>
+        <td><a  class="btn btn-info" role="button" href="indexm.php?c=News&a=fixnext&proid=<?=$mark['proid']?>">修改 </a> </td>
+    </tr>
+    <?php } ?>
+
+</table>
+<script src="./js/jquery.min.js" >
+</script>
+<script src="./js/bootstrap.min.js">
+</script>
+</body>
+</html>

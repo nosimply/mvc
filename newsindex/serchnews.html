@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> seach </title>
+    <meta name="generator" content="editplus" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+</head>
+<link rel="stylesheet" href="./css/bootstrap.min.css" >
+<body>
+<table class="table table-hover">
+    <tr>
+        <th class="success">编码</th>
+        <th class="success">运营商</th>
+        <th class="success">问题</th>
+        <th class="success">姓名</th>
+        <th class="success">修改</th>
+    </tr>
+    <?php
+    $pagesize=10;
+$rowcount=count($result);
+ $pagecount=ceil($rowcount/$pagesize);
+$pageno=$_GET['pageno']??1;
+    $pageno=$pageno<1?1:$pageno;
+    $pageno=$pageno>$pagecount?$pagecount:$pageno;
+foreach($result as $mark){
+	?>
+    <tr>
+        <td ><?=$mark["id"]?></td>
+        <td ><?=$mark["titie"]?></td>
+        <td ><?=$mark["comment"]?></td>
+        <td ><?=$mark["name"]?></td>
+        <td><a class="btn btn-info" role="button" href="indexm.php?c=nwes&a=fixnext&proid=<?=$mark['proid']?>">修改</a></td>
+    </tr>
+    <?php } ?>
+</table>
+一共有<?=$rowcount?>条记录，每页放<?=$pagesize?>条记录,当前是<?=$pageno?>页 <br />
+<a     class='btn btn-info' role="button" href="?pageno=1">首页</a>
+<a  class='btn btn-info' role="button"href="?pageno=<?=$pageno-1?>">上一页</a>
+<?php for($i=1; $i<=$pagecount; $i++):?>
+<a class='btn btn-info'  href='?pageno=<?=$i?>'><?=$i?></a>
+<?php endfor;?>
+<a     class='btn btn-info' role="button"     href="?pageno=<?=$pageno+1?>">下一页</a>
+<a     class='btn btn-info' role="button"      href="?pageno=<?=$pagecount?>">末页</a>
+<a     class='btn btn-info' role="button"      href="indexm.php">返回</a>
+
+<script src="./js/jquery.min.js" >
+</script>
+<script src="./js/bootstrap.min.js" >
+</script>
+</body>
+</html>

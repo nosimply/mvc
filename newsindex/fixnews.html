@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> update </title>
+    <meta name="generator" content="editplus" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+</head>
+<style type="text/css">
+
+</style>
+<link rel="stylesheet" href="./css/bootstrap.min.css" >
+<body>
+<form action="indexm.php?c=news&a=fix" method="post" class="form-horizontal" role="form">
+
+
+    <input  type="hidden" name="keys" value=<?=$result[0]['proid']?> >
+    <div class="form-group ">
+        <label class="col-sm-2 control-label">编号:</label>
+        <div class='col-sm-2'>
+            <input class="form-control" id="exampleInputName1"type="text" name="proid" value=<?=$result[0]['id'] ?> >
+        </div>
+    </div>
+    <div class="form-group ">
+        <label class="col-sm-2 control-label">运营商:</label>
+        <div class='col-sm-2'>
+            <input class="form-control" id="exampleInputName2" type="text" name="protitle" value=<?=$result[0]['titie']?> >
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">问题:</label>
+        <div class='col-sm-2'>
+            <input  class="form-control" id="exampleInputName3" type="text" name="procomment"value=<?=$result[0]['comment']?> >
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">SIM卡号:</label>
+        <div class='col-sm-2'>
+            <input  class="form-control" id="exampleInputName4" type="text" name="prosim"value=<?=$result[0]['name']?> >
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <input class="btn btn-info" type="submit" value="修改" onclick="return confirm('确定修改?')">
+        </div>
+    </div>
+</form>
+<script src="./js/jquery.min.js" >
+</script>
+<script src="./js/bootstrap.min.js" >
+</script>
+</body>
+</html>
