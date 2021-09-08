@@ -1,0 +1,44 @@
+
+<title>运营机器</title>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="sr-only" for="exampleInputEmail3">编码</label>
+                <input type="text" class="form-control2" id="exampleInputEmail3" placeholder="编码">
+                <a class="btn btn-info" href="#" role="button">搜索</a>
+            </div>
+        </div>
+        <div class="col-md-2 col-md-offset-3">
+            <a class="btn btn-info" href="#" role="button">添加</a>
+        </div>
+        <h5>运营商:{$user}</h5>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-offset-0">
+    <table  class="table table-hover">
+        <tr>
+            <th class="success">编号</th>
+            <th class="success">信息</th>
+            <th class="success">SIM</th>
+            <th class="success">运营商</th>
+            <th class="success">电话</th>
+            <th class="success">地址</th>
+            <th class="success">删除</th>
+            <th class="success">修改</th>
+        </tr>
+        {foreach($list as $mark)}
+        <tr>
+            <td >{$mark['proid']}</td>
+            <td >{$mark['name']}</td>
+            <td >{$mark['sim']}</td>
+            <td >{$mark['phone']}</td>
+            <td><a class="btn btn-info" role="button" href="indexm.php?c=News&a=del&proid=<?=$mark['proid']?>" onclick="return confirm('确定要删除吗')">删除</a></td>
+            <td><a  class="btn btn-info" role="button" href="indexm.php?c=News&a=fixnext&proid=<?=$mark['proid']?>">修改 </a> </td>
+        </tr>
+        {/foreach}
+
+    </table>
+    </div>
+</div>
